@@ -1,4 +1,4 @@
-﻿namespace ImageEditor.WinForms
+﻿namespace ImageEditor
 {
     partial class frmCropProfile
     {
@@ -101,7 +101,7 @@
             // 
             // cropProfileBindingSource
             // 
-            this.cropProfileBindingSource.DataSource = typeof(ImageEditor.Editing.CropProfile);
+            this.cropProfileBindingSource.DataSource = typeof(ImageEditor.CropProfile);
             // 
             // bindingNavigatorCountItem
             // 

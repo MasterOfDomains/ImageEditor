@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace ImageEditor
+namespace ImageEditor.Editing
 {
     class EditorCrop
     {

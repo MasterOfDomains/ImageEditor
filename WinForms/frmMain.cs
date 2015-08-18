@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using ImageEditor.Editing;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Drawing.Imaging;
 
-namespace ImageEditor
+namespace ImageEditor.WinForms
 {
     public partial class frmMain : Form
     {
@@ -346,36 +339,43 @@ namespace ImageEditor
 
         private void loadProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (frmCropProfile profiles = new frmCropProfile())
+            try
             {
-                if (profiles.ShowDialog() == DialogResult.OK)
+                using (frmCropProfile profiles = new frmCropProfile())
                 {
-                    Size cropSize = new Size(profiles.currentCropProfile.Width, 
-                        profiles.currentCropProfile.Height);
-                    if (currentImage != null)
+                    if (profiles.ShowDialog() == DialogResult.OK)
                     {
-                        currentImage.RemoveCrop();
-                        if (currentImage.AddCrop(cropSize))
+                        Size cropSize = new Size(profiles.currentCropProfile.Width,
+                            profiles.currentCropProfile.Height);
+                        if (currentImage != null)
+                        {
+                            currentImage.RemoveCrop();
+                            if (currentImage.AddCrop(cropSize))
+                            {
+                                currentProfile = profiles.currentCropProfile;
+                                txtBoundHeight.Text = currentProfile.Height.ToString();
+                                txtBoundWidth.Text = currentProfile.Width.ToString();
+                                txtDefaultImageDir.Text = currentProfile.ImageDirectory;
+                                pen.Color = Color.FromArgb(currentProfile.CropColor);
+                                pbxImage.Invalidate();
+                            }
+                            else
+                                MessageBox.Show("You must first enlarge the picture for that crop size.");
+                        }
+                        else
                         {
                             currentProfile = profiles.currentCropProfile;
                             txtBoundHeight.Text = currentProfile.Height.ToString();
                             txtBoundWidth.Text = currentProfile.Width.ToString();
                             txtDefaultImageDir.Text = currentProfile.ImageDirectory;
                             pen.Color = Color.FromArgb(currentProfile.CropColor);
-                            pbxImage.Invalidate();
                         }
-                        else
-                            MessageBox.Show("You must first enlarge the picture for that crop size.");
-                    }
-                    else
-                    {
-                        currentProfile = profiles.currentCropProfile;
-                        txtBoundHeight.Text = currentProfile.Height.ToString();
-                        txtBoundWidth.Text = currentProfile.Width.ToString();
-                        txtDefaultImageDir.Text = currentProfile.ImageDirectory;
-                        pen.Color = Color.FromArgb(currentProfile.CropColor);
                     }
                 }
+            }
+            catch (InvalidOperationException)
+            {
+                MessageBox.Show("Invalid Operation performed by you.");
             }
         }
 

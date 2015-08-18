@@ -1,4 +1,4 @@
-﻿namespace ImageEditor
+﻿namespace ImageEditor.WinForms
 {
     partial class frmMain
     {

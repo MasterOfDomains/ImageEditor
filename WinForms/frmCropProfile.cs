@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ImageEditor.Editing;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ImageEditor
+namespace ImageEditor.WinForms
 {
     public partial class frmCropProfile : Form
     {

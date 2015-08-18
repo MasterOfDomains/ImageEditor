@@ -80,26 +80,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BorderHelper.cs" />
-    <Compile Include="CropProfile.cs" />
-    <Compile Include="dlgNameProfile.cs">
+    <Compile Include="Editing\BorderHelper.cs" />
+    <Compile Include="Editing\CropProfile.cs" />
+    <Compile Include="WinForms\dlgNameProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="dlgNameProfile.Designer.cs">
+    <Compile Include="WinForms\dlgNameProfile.Designer.cs">
       <DependentUpon>dlgNameProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditorCrop.cs" />
-    <Compile Include="EditorImage.cs" />
-    <Compile Include="frmCropProfile.cs">
+    <Compile Include="Editing\EditorCrop.cs" />
+    <Compile Include="Editing\EditorImage.cs" />
+    <Compile Include="WinForms\frmCropProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCropProfile.Designer.cs">
+    <Compile Include="WinForms\frmCropProfile.Designer.cs">
       <DependentUpon>frmCropProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmMain.cs">
+    <Compile Include="WinForms\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMain.Designer.cs">
+    <Compile Include="WinForms\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="ImageEditorDataEntities.cs" />
@@ -111,13 +111,13 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="dlgNameProfile.resx">
+    <EmbeddedResource Include="WinForms\dlgNameProfile.resx">
       <DependentUpon>dlgNameProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCropProfile.resx">
+    <EmbeddedResource Include="WinForms\frmCropProfile.resx">
       <DependentUpon>frmCropProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
+    <EmbeddedResource Include="WinForms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508120047420_InitialCreate.resx">

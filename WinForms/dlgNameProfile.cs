@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ImageEditor
+namespace ImageEditor.WinForms
 {
     public partial class dlgNameProfile : Form
     {

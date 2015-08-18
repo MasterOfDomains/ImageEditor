@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 
-namespace ImageEditor
+namespace ImageEditor.Editing
 {
     public class CropProfile
     {

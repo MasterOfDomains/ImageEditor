@@ -9,8 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Imaging;
+using ImageEditor.Editing;
 
-namespace ImageEditor
+namespace ImageEditor.WinForms
 {
     public partial class frmMain : Form
     {

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ImageEditor.Editing;
+using System;
 using System.Windows.Forms;
 
-namespace ImageEditor
+namespace ImageEditor.WinForms
 {
     public partial class dlgNameProfile : Form
     {

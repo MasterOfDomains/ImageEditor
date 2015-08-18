@@ -1,14 +1,16 @@
-﻿using ImageEditor.Editing;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
-namespace ImageEditor.WinForms
+namespace ImageEditor
 {
     public partial class frmCropProfile : Form
     {
@@ -35,17 +37,9 @@ namespace ImageEditor.WinForms
         {
             currentCropProfile = new CropProfile();
             base.OnLoad(e);
-
-#if DATABASE_DATA_PERSISTENCE
-
             _context = new ImageEditorDataEntities();
-            try
-            {
+            if (_context.CropProfiles.Count() > 0)
                 _context.CropProfiles.Load();
-            }
-            catch
-            {
-            }
             this.cropProfileBindingSource.DataSource =
                 _context.CropProfiles.Local.ToBindingList();
 
@@ -66,17 +60,6 @@ namespace ImageEditor.WinForms
                         this.Close();
                 }
             }
-
-#elif XML_DATA_PERSISTENCE
-            string filePath = "";
-            var xmlFile = XmlReader.Create(filePath, new XmlReaderSettings());
-            var dataSet = new DataSet();
-            dataSet.ReadXml(xmlFile);
-            xmlFile.Close();
-            this.dgvCropProfiles.DataSource = dataSet.Tables[0];
-            this.cropProfileBindingSource.DataSource = _context.CropProfiles.
-            
-#endif
         }
 
         protected override void OnClosing(CancelEventArgs e)
